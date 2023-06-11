@@ -39,13 +39,13 @@ Installation
 
 ### PIP
 
-``` {.sourceCode .sh}
+``` {.sh}
 pip install python-glinet
 ```
 
 ### From Repo
 
-``` {.sourceCode .sh}
+``` {.sh}
 #clone repository
 git clone https://github.com/tomtana/python-glinet.git
 cd python-glinet
@@ -57,7 +57,7 @@ virtual environment (see
 The pip parameter `-e` is optional and gives you the possibility to edit
 the `python-glinet` directly in the folder.
 
-``` {.sourceCode .sh}
+``` {.sh}
 python3 -m venv venv
 source venv/bin/activate
 pip install -e .
@@ -88,14 +88,14 @@ a parameter.
     if not.
 -   Make sure you check and understand the default settings
 
-``` {.sourceCode .python}
+``` {.python}
 from pyglinet import GlInet
 glinet = GlInet()
 ```
 
 ### Login
 
-``` {.sourceCode .python}
+``` {.python}
 glinet.login()
 ```
 
@@ -103,7 +103,7 @@ The login method call has deliberately not been integrated into the
 constructor. For convenience it is possible to instantiate the object
 and login as shown below.
 
-``` {.sourceCode .python}
+``` {.python}
 # one liner: instantiation and login
 glinet = GlInet().login()
 ```
@@ -120,7 +120,7 @@ glinet = GlInet().login()
 Make sure you are in an ipython shell and logged in. Then, generate the
 `api_client`.
 
-``` {.sourceCode .python}
+``` {.python}
 api_client = glinet.get_api_client()
 ```
 
@@ -146,7 +146,7 @@ Or same result with
 
     glinet.api
 
-``` {.sourceCode .bash}
+``` {.bash}
 Out[11]:
 Function
 ------------------
@@ -200,11 +200,11 @@ cloud_batch_manage
 To explore the methods of a function group, just select it and hit
 enter.
 
-``` {.sourceCode .python}
+``` {.python}
 api_client.wg_client
 ```
 
-``` {.sourceCode .bash}
+``` {.bash}
 Out[6]:
 Function
 --------------------
@@ -237,11 +237,11 @@ remove_route
 Select your method and press enter. A list for all possible parameters
 are printed. A parameter prepended with `?` is optional.
 
-``` {.sourceCode .python}
+``` {.python}
 api_client.wg_client.set_config
 ```
 
-``` {.sourceCode .bash}
+``` {.bash}
 Out[8]:
 Parameter              Type    Description
 ---------------------  ------  ------------------
@@ -268,11 +268,11 @@ peer_id                number  配置ID
 You can also show the docstring by appending a `?` to the method. It
 will show all the parameters and usage examples.
 
-``` {.sourceCode .text}
+``` {.text}
 api_client.wg_client.set_config?
 ```
 
-``` {.sourceCode .text}
+``` {.text}
 Signature: api.wg_client.set_config(params=None)
 Type:      GlInetApiCall
 File:      ~/.local/lib/python3.10/site-packages/pyglinet/api_helper.py
@@ -311,7 +311,7 @@ how parameters need to be passed.
 
     api_client.wg_client.get_all_config_list()
 
-``` {.sourceCode .bash}
+``` {.bash}
 Out[12]: {'name': 'wg_client__get_all_config_list', 'config_list': [{'name': 'wg_client__get_all_config_list', 'username': '', 'group_name': 'AzireVPN', 'peers': [], 'password': '', 'auth_type': 1, 'group_id': 9690}]}
 ```
 
@@ -337,7 +337,7 @@ e.g.
 
     glinet.request("call", ["adguardhome", "get_config"])
 
-``` {.sourceCode .bash}
+``` {.bash}
 Out[12]: {'name': 'adguardhome__get_config', 'id': 13, 'jsonrpc': '2.0', 'result': {'name': 'adguardhome__get_config', 'enabled': False}}
 ```
 
@@ -345,7 +345,7 @@ is equivalent to
 
     api_client.adguardhome.get_config()
 
-``` {.sourceCode .bash}
+``` {.bash}
 Out[13]: {'name': 'adguardhome__get_config', 'enabled': False}
 ```
 
@@ -359,16 +359,16 @@ Roadmap
 
 ### V1.0.0
 
--   ☒ Add dynamically docstring for API calls
--   ☒ Create pip compliant package
--   ☒ Publish pip package
--   ☒ Add tests
--   ☒ Improve documentation
--   ☒ Increase test coverage
--   ☒ replace crypt dependency to allow also Windows execution
--   ☐ Add wrapper for execution via terminal
+-   [x] Add dynamically docstring for API calls
+-   [x] Create pip compliant package
+-   [x] Publish pip package
+-   [x] Add tests
+-   [x] Improve documentation
+-   [x] Increase test coverage
+-   [x] replace crypt dependency to allow also Windows execution
+-   [ ] Add wrapper for execution via terminal
 
 ### V2.0.0
 
--   ☐ Add asyncio support
--   ☐ \...
+-   [ ] Add asyncio support
+-   [ ] \...
